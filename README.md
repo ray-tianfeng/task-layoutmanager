@@ -304,13 +304,15 @@ public class TaskLayoutManager extends RecyclerView.LayoutManager implements Rec
   4. 回收
   5. 处理滚动
 - recyclerview的四级缓存
-|  级数   | 字段  | 容量 | 存储逻辑 |
-  | --------   | -----:   | :----: |:----: |
-| 1 | mChangedScrap | 未限制 | 当item改变，如数据更新时触发缓存 |
-| 1 | mAttachedScrap | 未限制 | 离屏时缓存，即调用detachAndScrapAttachedViews，所有还在屏幕的view |
-| 2 | mCachedViews |  2 | 调用removeAndRecycleAllViews时，如果超过2个就会将缓存的第一个移入到mRecyclerPool，然后将新加入的缓存到最后一个 |
-| 3 | mViewCacheExtension | 未限制|mViewCacheExtension需要实现ViewCacheExtension抽象类 |
-| 4 | mRecyclerPool | 每个viewType缓存5个|缓存池，如果超过5个就存不进去了，可以查看RecyclerView.putRecycledView方法 |
+
+| 级数 | 字段                 | 容量  | 存储逻辑                                                                                             |
+|:----|:--------------------|:------|:---------------------------------------------------------------------------------------------------|
+| 1   | mChangedScrap       | 未限制 | 当item改变，如数据更新时触发缓存                                                                        |
+| 1   | mAttachedScrap      | 未限制 | 离屏时缓存，即调用detachAndScrapAttachedViews，所有还在屏幕的view                                        |
+| 2   | mCachedViews        | 2     | 调用removeAndRecycleAllViews时，如果超过2个就会将缓存的第一个移入到mRecyclerPool，然后将新加入的缓存到最后一个 |
+| 3   | mViewCacheExtension | 未限制 | mViewCacheExtension需要实现ViewCacheExtension抽象类                                                   |
+| 4   |mRecyclerPool|每个viewType缓存5个|缓存池，如果超过5个就存不进去了，可以查看RecyclerView.putRecycledView方法|
+
 
 **说明：**
   1. 这里的缓存是ViewHolder，而不是itemView；
