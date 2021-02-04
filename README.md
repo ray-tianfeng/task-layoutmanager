@@ -391,15 +391,15 @@ ItemTouchHelper是RecyclerView的一个辅助工具类，主要用于滑动删�
 ## 定位（SnapHelper）
 recyclerview滚动后，显示的位置可能偏左或者偏右。而我们的需求是让高亮view显示到正中这里就使用到了LinearSnapHelper（让距离屏幕中心线最近的item居中显示）。这个控件也是辅助recyclerview显示的一个工具类，在fling时对recycler位置进行修正。
 
-- 自定义SnapHelper
-实现SnapHelper的三个方法
+- 自定义SnapHelper  
+实现SnapHelper的三个方法  
  **findSnapView：**attachToRecyclerView时和fling时调用，用于查找上面两个时刻距离锚点最近的view作为参照，LinearSnapHelper的锚点就在屏幕中心线上。所以我们的这个就是查找距离中心线最近的参照itemview  
- **findTargetSnapPosition：**通过上findSnapView查找到参照itemview 下标，计算出filing结束后，距离中心线最近的snapView(就是itemView，便于区分所以叫这个名字)下标
- **calculateDistanceToFinalSnap：**通过findTargetSnapPosition的结束位置的snapView，计算出需要滚动到锚点的距离。LinearSnapHelper的锚点在屏幕中心线，所以就是snapView的中心线到屏幕中心线的距离
+ **findTargetSnapPosition：**通过上findSnapView查找到参照itemview 下标，计算出filing结束后，距离中心线最近的snapView(就是itemView，便于区分所以叫这个名字)下标  
+ **calculateDistanceToFinalSnap：**通过findTargetSnapPosition的结束位置的snapView，计算出需要滚动到锚点的距离。LinearSnapHelper的锚点在屏幕中心线，所以就是snapView的中心线到屏幕中心线的距离  
 **调用流程：**
 recyclerview.onTouchEvent—>recyclerview.fling—>snaphelper.snapFromFling—>snaphelper.findTargetSnapPosition(获取snapView，这里就会调用findSnapView辅助查找snapView)—>layoutManager.startSmoothScroll(滚动到snapview)—>snaphelper.calculateDistanceToFinalSnap(计算出滚动到snapview的距离)—>recyclerview.smoothScrollBy
 
-- LayoutManager必须实现RecyclerView.SmoothScroller.ScrollVectorProvider
+- LayoutManager必须实现RecyclerView.SmoothScroller.ScrollVectorProvider  
 如果自定义Layoutmanager要使用Snaphelper就必须实现RecyclerView.SmoothScroller.ScrollVectorProvider接口，改接口只要一个方法
 ~~~java
     /**
