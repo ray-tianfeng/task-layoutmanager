@@ -1,7 +1,7 @@
 手机任务栏效果看着还不错，想着自己去实现哈，刚好到年末了业务较少。把自己实现时使用的技术点记录下来，以后忘记了翻阅方便点。其中包含recyclerview的缓存、回收和一些辅助工具的使用。
 先上效果：
-横屏：![land.gif](https://github.com/ray-tianfeng/task-layoutmanager/blob/master/gif/land.gif)
-竖屏：![portrait.gif](https://github.com/ray-tianfeng/task-layoutmanager/blob/master/gif/portrait.gif)
+横屏：![land.gif](/gif/land.gif)
+竖屏：![portrait.gif](/gif/portrait.gif)
 
 ## 基本功能实现
 上代码：
