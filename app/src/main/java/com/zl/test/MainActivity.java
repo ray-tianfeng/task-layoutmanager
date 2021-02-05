@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.zl.tasklayoutmanager.IHCallback;
 import com.zl.tasklayoutmanager.R;
 import com.zl.tasklayoutmanager.RemoveListener;
+import com.zl.tasklayoutmanager.SlowLinearSnapHelper;
 import com.zl.tasklayoutmanager.TaskLayoutManager;
 
 import java.util.ArrayList;
@@ -73,7 +74,7 @@ public class MainActivity extends Activity {
                 mTestAdapter.notifyItemRemoved(position);
             }
         })).attachToRecyclerView(mRecyclerView);
-        new LinearSnapHelper().attachToRecyclerView(mRecyclerView);
+        new SlowLinearSnapHelper().attachToRecyclerView(mRecyclerView);
     }
     class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder>{
 
