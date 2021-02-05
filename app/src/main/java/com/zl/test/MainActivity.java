@@ -5,13 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,33 +24,33 @@ public class MainActivity extends Activity {
             R.drawable.pic1,
             R.drawable.pic2,
             R.drawable.pic3,
-            R.drawable.pic4
-//            R.drawable.pic5,
-//            R.drawable.pic1,
-//            R.drawable.pic2,
-//            R.drawable.pic3,
-//            R.drawable.pic4,
-//            R.drawable.pic5,
-//            R.drawable.pic6,
-//            R.drawable.pic7,
-//            R.drawable.pic8,
-//            R.drawable.pic9,
-//            R.drawable.pic10,
-//            R.drawable.pic6,
-//            R.drawable.pic7,
-//            R.drawable.pic1,
-//            R.drawable.pic2,
-//            R.drawable.pic3,
-//            R.drawable.pic4,
-//            R.drawable.pic5,
-//            R.drawable.pic6,
-//            R.drawable.pic7,
-//            R.drawable.pic8,
-//            R.drawable.pic9,
-//            R.drawable.pic10,
-//            R.drawable.pic8,
-//            R.drawable.pic9,
-//            R.drawable.pic10
+            R.drawable.pic4,
+            R.drawable.pic5,
+            R.drawable.pic1,
+            R.drawable.pic2,
+            R.drawable.pic3,
+            R.drawable.pic4,
+            R.drawable.pic5,
+            R.drawable.pic6,
+            R.drawable.pic7,
+            R.drawable.pic8,
+            R.drawable.pic9,
+            R.drawable.pic10,
+            R.drawable.pic6,
+            R.drawable.pic7,
+            R.drawable.pic1,
+            R.drawable.pic2,
+            R.drawable.pic3,
+            R.drawable.pic4,
+            R.drawable.pic5,
+            R.drawable.pic6,
+            R.drawable.pic7,
+            R.drawable.pic8,
+            R.drawable.pic9,
+            R.drawable.pic10,
+            R.drawable.pic8,
+            R.drawable.pic9,
+            R.drawable.pic10
     ));
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +64,6 @@ public class MainActivity extends Activity {
                 return itemView.findViewById(R.id.iv);
             }
         });
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         final TestAdapter mTestAdapter = new TestAdapter();
         mRecyclerView.setAdapter(mTestAdapter);
         new ItemTouchHelper(new IHCallback(new RemoveListener() {
@@ -78,7 +73,7 @@ public class MainActivity extends Activity {
                 mTestAdapter.notifyItemRemoved(position);
             }
         })).attachToRecyclerView(mRecyclerView);
-        new Test().attachToRecyclerView(mRecyclerView);
+        new LinearSnapHelper().attachToRecyclerView(mRecyclerView);
     }
     class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder>{
 
